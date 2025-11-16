@@ -13,12 +13,17 @@ int main(int argc, char *argv[])
     // open file
     FILE *f = fopen(filename, "rb");
 
-    // print content
-    char line[256];
-    while (fgets(line, sizeof(line), f))
-    {
-        printf("%s", line);
-    }
+    // CPU Buffer
+    size_t buffer_size = (1024 * 1024) * 100;
+    unsigned char *buffer = (unsigned char *)malloc(buffer_size);
+
+    // read file to a buffer
+    size_t read = fread(buffer, 1, buffer_size, f);
+
+    printf("%s", buffer);
+
+    // deallocate CPU buffer
+    free(buffer);
 
     // close file
     fclose(f);
