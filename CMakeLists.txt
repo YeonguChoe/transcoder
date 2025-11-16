@@ -34,8 +34,8 @@ find_library(NVCUVID_LIB nvcuvid PATHS ${SDK_LIB})
 # --------------------------------------------------------------
 add_executable(cuda-transcoder
     main.cpp
-    decoder.cu
-    encoder.cu
+    decoder.cpp
+    encoder.cpp
     transcoder.cu
 )
 
