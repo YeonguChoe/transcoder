@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/ychoe/Desktop/cuda-transcoder/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

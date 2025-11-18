@@ -47,9 +47,23 @@ set_target_properties(cuda-transcoder PROPERTIES
 # --------------------------------------------------------------
 # Link
 # --------------------------------------------------------------
-target_link_libraries(cuda-transcoder
+
+
+target_include_directories(cuda-transcoder PRIVATE ${PROJECT_SOURCE_DIR}/ffmpeg/include)
+
+target_link_directories(cuda-transcoder PRIVATE ${PROJECT_SOURCE_DIR}/ffmpeg/lib)
+
+
+target_link_libraries(cuda-transcoder PRIVATE
     ${NVENC_LIB}
     ${NVCUVID_LIB}
     cuda
     cudart
+    avutil
+    swscale
+    swresample
+    avcodec
+    avformat
+    avdevice
+    avfilter
 )
